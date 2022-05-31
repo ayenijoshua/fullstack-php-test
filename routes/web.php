@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HmoController;
+use App\Http\Controllers\ProviderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,8 @@ Route::get('/', [OrderController::class, 'createOrder']);
 Route::get('create-order', [OrderController::class, 'createOrder']);
 
 Route::get('hmos/{id}/batch-orders', [HmoController::class, 'batchOrderPage']);
+
+Route::get('create-hmo', [HmoController::class, 'createHmo']);
+
+Route::get('create-provider', [ProviderController::class, 'createProvider']);
 

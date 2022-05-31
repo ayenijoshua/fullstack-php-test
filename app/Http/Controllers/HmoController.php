@@ -25,8 +25,10 @@ class HmoController extends Controller
     public function create(Request $request)
     {
         $v = Validator::make($request->all(),[
-            'code'=>'required|unique:hmos,code',
-            'name'=> 'required|string',
+            'code'=>'bail|required|unique:hmos,code',
+            'name'=> 'bail|required|string',
+            'email'=> 'bail|required|string',
+            'batch_type'=>'bail|required|string'
         ]);
 
         if($v->fails()){
@@ -73,5 +75,10 @@ class HmoController extends Controller
         $batches = $this->hmoService->batch($hmo->batch_type,$id);
 
         $hmo->notify(new HmoNotification($batches));
+    }
+
+    public function createHmo()
+    {
+        return view('create-hmo');
     }
 }

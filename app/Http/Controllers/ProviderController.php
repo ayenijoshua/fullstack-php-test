@@ -22,14 +22,20 @@ class ProviderController extends Controller
     {
         $v = Validator::make($request->all(),[
             'name'=>'required',
+            'email'=>'required',
         ]);
 
         if($v->fails()){
-            return response()->json(['message'=>$v->messages()],422);
+            return response()->json(['message'=>$v->messages()->first()],422);
         }
 
         $provider = $this->provider->create($request->all());
 
         return response()->json($provider);
+    }
+
+    public function createProvider()
+    {
+        return view('create-provider');
     }
 }

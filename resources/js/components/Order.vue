@@ -5,21 +5,21 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Provider</label>
-                    <select v-model="form.provider_id" class="form-control">
+                    <select required v-model="form.provider_id" class="form-control">
                         <option :value="null">Select Provider</option>
                         <option v-for="provider,i in providers" :key="i" :value="provider.id">{{provider.name}} - {{provider.email}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">HMO</label>
-                    <select v-model="form.hmo_id" class="form-control">
+                    <select required v-model="form.hmo_id" class="form-control">
                         <option :value="null">Select Hmo</option>
                         <option v-for="hmo,i in hmos" :key="i" :value="hmo.id">{{hmo.name}} - {{hmo.code}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Encounter Date</label>
-                    <input v-model="form.encounter_date" type="date" class="form-control" id="exampleInputEmail1">
+                    <input required v-model="form.encounter_date" type="date" class="form-control" id="exampleInputEmail1">
                 </div>
                 <div class="form-group">
                     
@@ -29,19 +29,19 @@
                         <div class="form-row" :key="i">
                             <div class="col">
                                 <label for="exampleInputEmail1">name</label>
-                                <input v-model="item.name" type="text" class="form-control">
+                                <input required v-model="item.name" type="text" class="form-control">
                             </div>
                             <div class="col">
                                 <label for="exampleInputEmail1">Unit price</label>
-                                <input min="1" :id="'unit-price'+i" v-model="item.unitPrice" @change="subTotal(i)" type="number" class="form-control">
+                                <input required min="1" :id="'unit-price'+i" v-model="item.unitPrice" @change="subTotal(i)" type="number" class="form-control">
                             </div>
                             <div class="col">
                                 <label for="exampleInputEmail1">Qty</label>
-                                <input min="1" :id="'qty'+i" v-model="item.qty" @change="subTotal(i)" type="number" class="form-control">
+                                <input required min="1" :id="'qty'+i" v-model="item.qty" @change="subTotal(i)" type="number" class="form-control">
                             </div>
                             <div class="col">
                                 <label for="exampleInputEmail1">Sub total</label>
-                                <input readonly :id="'subTotal'+i" v-model="item.subTotal" type="number" class="form-control">
+                                <input required readonly :id="'subTotal'+i" v-model="item.subTotal" type="number" class="form-control">
                             </div>
                             <div class="col">
                                 <label for="exampleInputEmail1">&nbsp;</label>
@@ -55,7 +55,7 @@
                             <button id="add" title="add item" type="button" class="btn btn-primary" @click="addItem()">+</button>
                         </div>
                         <div class="col">
-                            <input type="number" id="total" readonly v-model="form.total" class="form-control" placeholder="Total">
+                            <input required type="number" id="total" readonly v-model="form.total" class="form-control" placeholder="Total">
                         </div>
                     </div>
                     <br>

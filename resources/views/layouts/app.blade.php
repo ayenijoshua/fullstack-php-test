@@ -39,6 +39,13 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="/create-provider" class="nav-link" href="">Create Provider</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/create-hmo"class="nav-link" href="">Create HMO</a>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="">{{ __('Submit Order') }}</a>

@@ -8,4 +8,6 @@ use Illuminate\Notifications\Notifiable;
 class Hmo extends Model
 {
     use HasFactory, Notifiable;
+
+    protected $guarded = [];
 }

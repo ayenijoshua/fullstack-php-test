@@ -22,10 +22,12 @@ use App\Http\Controllers\ProviderController;
 // });
 
 Route::get('providers', [ProviderController::class, 'index']);
+Route::post('providers', [ProviderController::class, 'create']);
 
 Route::get('hmos', [HmoController::class, 'index']);
 Route::get('hmos/{id}/batch-orders', [HmoController::class, 'batchOrder']);
 Route::post('hmos/{id}/notify', [HmoController::class, 'sendNotification']);
+Route::post('hmos', [HmoController::class, 'create']);
 
 Route::get('orders', [OrderController::class, 'index']);
 Route::post('orders', [OrderController::class, 'create']);

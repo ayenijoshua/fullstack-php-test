@@ -19,10 +19,10 @@
                                 <ul class="list-group">
                                 <template v-for="item, index in batch">
                                     <li :key="index" class="list-group-item d-flex justify-content-between align-items-center">
-                                    Encounter date - {{item.encounter_date}} <br>
-                                    Sent Date - {{item.sent_date}} <br>
-                                    Items - {{item.items}} 
-                                        
+                                        Encounter date - {{item.encounter_date}} <br>
+                                        Sent Date - {{item.sent_date}} <br>
+                                        Items - {{item.items}} <br>
+                                        Total - {{item.total}} 
                                     </li>
                                 </template>
                                 </ul>
@@ -60,7 +60,7 @@ export default {
     },
 
     mounted(){
-        axios.get(`/api/hmos/${this.id}/batch-order`).then(res=>{
+        axios.get(`/api/hmos/${this.id}/batch-orders`).then(res=>{
             if(res.status == 200){
                 this.batches = res.data
             }
